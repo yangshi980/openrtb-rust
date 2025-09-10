@@ -22,7 +22,10 @@ pub struct Device {
         deserialize_with = "serde_utils::u8_to_mbool"
     )]
     pub dnt: Option<bool>,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    #[serde(skip_serializing_if = "Option::is_none",
+        serialize_with = "serde_utils::mbool_to_u8",
+        deserialize_with = "serde_utils::u8_to_mbool"
+    )]
     pub lmt: Option<bool>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub ip: Option<String>,
