@@ -19,8 +19,9 @@ use super::site::Site;
 use super::source::Source;
 use super::user::User;
 
-#[derive(Debug, PartialEq, Clone)]
+#[derive(Debug, PartialEq, Default, Clone)]
 pub enum AuctionType {
+    #[default]
     FirstPrice,
     SecondPricePlus,
     ExchangeSpecific(u32),
@@ -38,7 +39,7 @@ pub enum AuctionType {
 // recommended, but only one applies to a given bid request depending on whether
 // the media is browser-based web content or a non-browser application,
 // respectively.
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Default)]
 pub struct BidRequest {
     // Required. Unique ID of the bid request, provided by the exchange.
     pub id: String,
@@ -170,25 +171,7 @@ impl BidRequest {
     pub fn new(id: String) -> BidRequest {
         BidRequest {
             id: id,
-            imp: vec![],
-            site: None,
-            app: None,
-            device: None,
-            user: None,
-            test: false,
-            auction_type: AuctionType::FirstPrice,
-            tmax: None,
-            seat_whitelist: vec![],
-            seat_blocklist: vec![],
-            all_imps: false,
-            currency: vec![],
-            language_whitelist: vec![],
-            category_blocklist: vec![],
-            advertiser_blocklist: vec![],
-            app_blocklist: vec![],
-            source: None,
-            regulations: None,
-            ext: None,
+            ..Default::default()
         }
     }
 

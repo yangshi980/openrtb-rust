@@ -1,7 +1,7 @@
 use super::category::Category;
 use serde_utils;
 
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Default)]
 pub struct Bid {
     #[serde(deserialize_with = "serde_utils::anything_to_string")]
     pub id: String,

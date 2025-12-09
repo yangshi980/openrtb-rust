@@ -1,7 +1,7 @@
 use super::bid::Bid;
 use serde_utils;
 
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Default)]
 pub struct SeatBid {
     pub bid: Vec<Bid>, // todo: require 1+ bid somehow
     #[serde(skip_serializing_if = "Option::is_none")]
