@@ -15,7 +15,7 @@ use super::native::Native;
 use super::pmp::PMP;
 use super::video::Video;
 
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Default)]
 pub struct Imp {
     pub id: String,
 
